@@ -2,14 +2,14 @@
   "stats": {
     "suites": 1,
     "tests": 1,
-    "passes": 1,
+    "passes": 0,
     "pending": 0,
-    "failures": 0,
-    "start": "2023-04-26T18:57:36.616Z",
-    "end": "2023-04-26T18:57:54.260Z",
-    "duration": 17644,
+    "failures": 1,
+    "start": "2023-05-03T19:43:04.833Z",
+    "end": "2023-05-03T19:43:15.518Z",
+    "duration": 10685,
     "testsRegistered": 1,
-    "passPercent": 100,
+    "passPercent": 0,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "7aee94ff-b3b0-46fe-b971-321fb0e4994e",
+      "uuid": "0a64cf06-69e2-48e3-9a84-16e8b4381a06",
       "title": "",
       "fullFile": "D:\\FrontEnd\\Practice projects\\e-commerce automation\\test\\order.js",
       "file": "\\test\\order.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "7d68d851-e0bd-4810-a639-f61ac735e9fe",
+          "uuid": "4a091b08-ce1a-4c11-9bda-b01b5b92c2ce",
           "title": "task for go phptravels",
           "fullFile": "D:\\FrontEnd\\Practice projects\\e-commerce automation\\test\\order.js",
           "file": "\\test\\order.js",
@@ -35,32 +35,36 @@
           "afterHooks": [],
           "tests": [
             {
-              "title": "automate all links",
-              "fullTitle": "task for go phptravels automate all links",
+              "title": "successful",
+              "fullTitle": "task for go phptravels successful",
               "timedOut": false,
-              "duration": 17638,
-              "state": "passed",
-              "speed": "slow",
-              "pass": true,
-              "fail": false,
+              "duration": 10677,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
               "pending": false,
               "context": null,
-              "code": "//create driver\n// Set up the Selenium driver\nconst driver = await new Builder().forBrowser(\"chrome\").build();\n// Navigate to the webpage\ndriver.get(\"https://www.graze.com/uk/\");\nawait driver.manage().window().maximize();\nawait driver\n  .findElement(\n    By.className(\"button button--primary signup-button text-center\")\n  )\n  .click();\nconst boxes = await driver.findElements(\n  By.className(\"button button--secondary button--block\")\n);\nawait boxes[1].click();\n//filling first data page with info\nconst firstName = await driver.findElement(By.id(\"firstName\"));\nawait firstName.sendKeys(\"Denis\");\nconst secondName = await driver.findElement(By.id(\"lastName\"));\nawait secondName.sendKeys(\"Poplavskii\");\nconst email = await driver.findElement(By.id(\"email\"));\nawait email.sendKeys(\"mymail@gmail.com\");\nconst password = await driver.findElement(By.id(\"password\"));\nawait password.sendKeys(\"easy1357$\");\nawait driver.findElement(By.id(\"submit-button\")).click();\n// Wait for the new page to load\nawait driver.wait(\n  until.urlContains(\"https://www.graze.com/uk/registration/address\"),\n  5000\n);\n//filling second data page\nconst streetAdress = await driver.findElement(By.id(\"line1\"));\nawait streetAdress.sendKeys(\"Rakowicka 12\");\nconst townName = await driver.findElement(By.id(\"town\"));\nawait townName.sendKeys(\"Cracow\");\nconst postcode = await driver.findElement(By.id(\"postcode\"));\nawait postcode.sendKeys(\"TW9 1EW\");\nawait driver.findElement(By.id(\"continue\")).click();\n//filling second data page\nawait driver.wait(\n  until.urlContains(\"https://www.graze.com/uk/registration/card-details\"),\n  5000\n);\nconst cardHolder = await driver.findElement(By.id(\"nameOnCard\"));\nawait cardHolder.sendKeys(\"Newyork Englishman\");\nconst cardNumber = await driver.findElement(By.id(\"number\"));\nawait cardNumber.sendKeys(\"4739\");\nawait cardNumber.sendKeys(\"6270\");\nawait cardNumber.sendKeys(\"4100\");\nawait cardNumber.sendKeys(\"7923\");\n\nconst cvc = await driver.findElement(By.id(\"cv2\"));\nawait cvc.sendKeys(\"127\");\nconst billingCode = await driver.findElement(By.id(\"billingPostcode\"));\nawait billingCode.sendKeys(\"TW9 1EW\");\nawait driver.findElement(By.id(\"submit-button\")).click();\nsetTimeout(async function () {\n  await driver.quit();\n}, 5000);",
-              "err": {},
-              "uuid": "4b6c7155-86e4-4d85-abd1-cfccb6b584e8",
-              "parentUUID": "7d68d851-e0bd-4810-a639-f61ac735e9fe",
+              "code": "//create driver\n// Set up the Selenium driver\nconst driver = await new Builder().forBrowser(\"chrome\").build();\n// Navigate to the webpage\ndriver.get(\"https://www.graze.com/uk/\");\nawait driver.manage().window().maximize();\nawait driver\n  .findElement(\n    By.className(\"button button--primary signup-button text-center\")\n  )\n  .click();\nconst boxes = await driver.findElements(\n  By.className(\"button button--secondary button--block\")\n);\nawait boxes[1].click();\n\n//filling first data page with info\nconst firstName = await driver.findElement(By.id(\"firstName\"));\nconst secondName = await driver.findElement(By.id(\"lastName\"));\nconst email = await driver.findElement(By.id(\"email\"));\nconst password = await driver.findElement(By.id(\"password\"));\nawait driver.findElement(By.id(\"submit-button\")).click();\ndriver.wait(until.stalenessOf(boxes[1]));\n// Find all  elements with the \"help-block\" class\nconst helpBlockElements = await driver.findElements(By.css(\"small\"));\n\n\n\n\n\n// Get the second <small> element and output its text content\nconst firstHelpBlockElement = helpBlockElements[0];\n//getting error text for first name\nconst firstHelpBlockText = await firstHelpBlockElement.getAttribute(\n  \"innerText\"\n);\nconsole.log(`firstHelpBlockText`, firstHelpBlockText);\nconst secondHelpBlockElement = helpBlockElements[1];\n//getting error text for first name\nconst secondHelpBlockText = await secondHelpBlockElement.getAttribute(\n  \"innerText\"\n);\nconsole.log(`secondHelpBlockText`, secondHelpBlockText);\nconst thirdHelpBlockElement = helpBlockElements[2];\n//getting error text for first name\nconst thirdHelpBlockText = await thirdHelpBlockElement.getAttribute(\n  \"innerText\"\n);\nconsole.log(`thirdHelpBlockText`, thirdHelpBlockText);\n// // Check if the text matches the expected value\n//first name field error\nconst firstNameHelpBlockExpected = \"first name is required\";\nexpect(firstHelpBlockText).to.equal(firstNameHelpBlockExpected);\n//second name field error\nconst secondNameHelpBlockExpected = \"last name is required\";\nexpect(secondHelpBlockText).to.equal(secondNameHelpBlockExpected);\n//email field error\nconst thirdNameHelpBlockExpected = \"This field is required\";\nexpect(thirdHelpBlockText).to.equal(thirdNameHelpBlockExpected);\n//password field error\n// const secondNameHelpBlockExpected = \"This field is required\";\n// expect(secondHelpBlockText).to.equal(secondNameHelpBlockExpected);\n// await firstName.sendKeys(\"Denis\");\n// await secondName.sendKeys(\"Poplavskii\");\n// await email.sendKeys(\"mymail@gmail.com\");\n// await password.sendKeys(\"easy1357$\");\n// setTimeout(async function () {\n//   await driver.quit();\n// }, 5000);",
+              "err": {
+                "message": "AssertionError: expected '' to equal 'This field is required'",
+                "estack": "AssertionError: expected '' to equal 'This field is required'\n    at Context.<anonymous> (test\\order.js:156:35)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                "diff": "+ This field is required\n"
+              },
+              "uuid": "f19e0286-13d6-4469-a59f-0c4fdf1c3333",
+              "parentUUID": "4a091b08-ce1a-4c11-9bda-b01b5b92c2ce",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
-          "passes": [
-            "4b6c7155-86e4-4d85-abd1-cfccb6b584e8"
+          "passes": [],
+          "failures": [
+            "f19e0286-13d6-4469-a59f-0c4fdf1c3333"
           ],
-          "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 17638,
+          "duration": 10677,
           "root": false,
           "rootEmpty": false,
           "_timeout": 0
