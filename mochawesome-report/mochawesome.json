@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2023-05-04T16:53:20.135Z",
-    "end": "2023-05-04T16:53:31.691Z",
-    "duration": 11556,
+    "start": "2023-05-04T18:45:05.197Z",
+    "end": "2023-05-04T18:45:19.781Z",
+    "duration": 14584,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "55beec73-4c0a-4a07-bcc0-783104a9e1be",
+      "uuid": "740d1bc5-561e-442f-aaba-b5258303d980",
       "title": "",
       "fullFile": "D:\\FrontEnd\\Practice projects\\e-commerce automation\\test\\order.js",
       "file": "\\test\\order.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "547f2776-0a8f-46d5-af3b-a44bf3778e71",
+          "uuid": "898915e1-a17a-49ba-a3e8-4785fe3464c5",
           "title": "task for go phptravels",
           "fullFile": "D:\\FrontEnd\\Practice projects\\e-commerce automation\\test\\order.js",
           "file": "\\test\\order.js",
@@ -38,29 +38,29 @@
               "title": "successful",
               "fullTitle": "task for go phptravels successful",
               "timedOut": false,
-              "duration": 11549,
+              "duration": 14579,
               "state": "passed",
               "speed": "slow",
               "pass": true,
               "fail": false,
               "pending": false,
               "context": null,
-              "code": "//create driver\n// Set up the Selenium driver\nconst driver = await new Builder().forBrowser(\"chrome\").build();\n// Navigate to the webpage\ndriver.get(\"https://www.graze.com/uk/\");\nawait driver.manage().window().maximize();\nawait driver\n  .findElement(\n    By.className(\"button button--primary signup-button text-center\")\n  )\n  .click();\nconst boxes = await driver.findElements(\n  By.className(\"button button--secondary button--block\")\n);\nawait boxes[1].click();\n//filling first data page with info\nconst firstName = await driver.findElement(By.id(\"firstName\"));\nconst secondName = await driver.findElement(By.id(\"lastName\"));\nconst email = await driver.findElement(By.id(\"email\"));\nconst password = await driver.findElement(By.id(\"password\"));\nawait driver.findElement(By.id(\"submit-button\")).click();\nawait driver.wait(until.stalenessOf(driver.findElement(By.tagName('html'))));\n// Find all  elements with the \"help-block\" class\nconst helpBlockElements = await driver.findElements(By.css(\"small\"));\n// Get the second <small> element and output its text content\nconst firstHelpBlockElement = helpBlockElements[0];\n//getting error text for first name\nconst firstHelpBlockText = await firstHelpBlockElement.getAttribute(\n  \"innerText\"\n);\nconsole.log(`firstHelpBlockText`, firstHelpBlockText);\nconst secondHelpBlockElement = helpBlockElements[2];\n//getting error text for second name\nconst secondHelpBlockText = await secondHelpBlockElement.getAttribute(\n  \"innerText\"\n);\nconsole.log(`secondHelpBlockText`, secondHelpBlockText);\nconst emailHelpBlockElement = helpBlockElements[5];\n//getting error text for email\nconst emailHelpBlockText = await emailHelpBlockElement.getAttribute(\n  \"innerText\"\n);\nconsole.log(`emailHelpBlockText1`, emailHelpBlockText);\nconst passwordHelpBlockElement = helpBlockElements[8];\n//getting error text for password\nconst passwordHelpBlockText = await passwordHelpBlockElement.getAttribute(\n  \"innerText\"\n);\nconsole.log(`passwordHelpBlockText1`, passwordHelpBlockText);\n// // Check if the text matches the expected value\n//first name field error\nconst firstNameHelpBlockExpected = \"first name is required\";\nexpect(firstHelpBlockText).to.equal(firstNameHelpBlockExpected);\n//second name field error\nconst secondNameHelpBlockExpected = \"last name is required\";\nexpect(secondHelpBlockText).to.equal(secondNameHelpBlockExpected);\nconst emailHelpBlockExpected = \"This field is required\";\nexpect(emailHelpBlockText).to.equal(emailHelpBlockExpected);\nconst passwordHelpBlockExpected = \"This field is required\";\nexpect(passwordHelpBlockText).to.equal(passwordHelpBlockExpected);\n// await firstName.sendKeys(\"Denis\");\n// await secondName.sendKeys(\"Poplavskii\");\n// await email.sendKeys(\"mymail@gmail.com\");\n// await password.sendKeys(\"easy1357$\");\n// setTimeout(async function () {\n//   await driver.quit();\n// }, 5000);",
+              "code": "//create driver\n// Set up the Selenium driver\nconst driver = await new Builder().forBrowser(\"chrome\").build();\n// Navigate to the webpage\ndriver.get(\"https://www.graze.com/uk/\");\nawait driver.manage().window().maximize();\nawait driver\n  .findElement(\n    By.className(\"button button--primary signup-button text-center\")\n  )\n  .click();\nconst boxes = await driver.findElements(\n  By.className(\"button button--secondary button--block\")\n);\nawait boxes[1].click();\n//filling first data page with info\nconst firstName = await driver.findElement(By.id(\"firstName\"));\nconst secondName = await driver.findElement(By.id(\"lastName\"));\nconst email = await driver.findElement(By.id(\"email\"));\nconst password = await driver.findElement(By.id(\"password\"));\nawait driver.findElement(By.id(\"submit-button\")).click();\n//waiting for page to reload because button triggers page refresh and error elements are not present before that\nawait driver.wait(until.stalenessOf(driver.findElement(By.tagName('html'))));\n// Find all  elements with the \"help-block\" class\nconst helpBlockElements = await driver.findElements(By.css(\"small\"));\n// Get the second <small> element and output its text content\nconst firstHelpBlockElement = helpBlockElements[0];\n//getting error text for first name\nconst firstHelpBlockText = await firstHelpBlockElement.getAttribute(\n  \"innerText\"\n);\nconsole.log(`firstHelpBlockText`, firstHelpBlockText);\nconst secondHelpBlockElement = helpBlockElements[2];\n//getting error text for second name\nconst secondHelpBlockText = await secondHelpBlockElement.getAttribute(\n  \"innerText\"\n);\nconsole.log(`secondHelpBlockText`, secondHelpBlockText);\nconst emailHelpBlockElement = helpBlockElements[5];\n//getting error text for email\nconst emailHelpBlockText = await emailHelpBlockElement.getAttribute(\n  \"innerText\"\n);\nconsole.log(`emailHelpBlockText1`, emailHelpBlockText);\nconst passwordHelpBlockElement = helpBlockElements[8];\n//getting error text for password\nconst passwordHelpBlockText = await passwordHelpBlockElement.getAttribute(\n  \"innerText\"\n);\nconsole.log(`passwordHelpBlockText1`, passwordHelpBlockText);\n// // Check if the text matches the expected value\n//first name field error\nconst firstNameHelpBlockExpected = \"first name is required\";\nexpect(firstHelpBlockText).to.equal(firstNameHelpBlockExpected);\n//second name field error\nconst secondNameHelpBlockExpected = \"last name is required\";\nexpect(secondHelpBlockText).to.equal(secondNameHelpBlockExpected);\nconst emailHelpBlockExpected = \"This field is required\";\nexpect(emailHelpBlockText).to.equal(emailHelpBlockExpected);\nconst passwordHelpBlockExpected = \"This field is required\";\nexpect(passwordHelpBlockText).to.equal(passwordHelpBlockExpected);\nconst firstName1 = await driver.findElement(By.id(\"firstName\"));\nconst secondName1 = await driver.findElement(By.id(\"lastName\"));\nconst email1 = await driver.findElement(By.id(\"email\"));\nawait firstName1.sendKeys(\"Denis\");\nawait secondName1.sendKeys(\"Poplavskii\");\nawait email1.sendKeys(\"mymai\");\nconst wrapper = await driver.findElement(By.className(\"signup-steps\"));\nwrapper.click()\n\nconst helpBlockElements2 = await driver.findElements(By.css(\"small\"));\nconst emailNotValidHelpBlockElement = helpBlockElements2[8];\n//getting error text for password\nconst emailNotValidHelpBlockText = await emailNotValidHelpBlockElement.getAttribute(\n  \"innerText\"\n);\nconsole.log(`emailNotValidHelpBlockText1`, emailNotValidHelpBlockText);\n// await password.sendKeys(\"easy1357$\");\n// setTimeout(async function () {\n//   await driver.quit();\n// }, 5000);",
               "err": {},
-              "uuid": "c5cee990-97bf-4432-a273-697019898ad2",
-              "parentUUID": "547f2776-0a8f-46d5-af3b-a44bf3778e71",
+              "uuid": "d9b7b0ec-e4b5-461a-9c40-7c9d61791397",
+              "parentUUID": "898915e1-a17a-49ba-a3e8-4785fe3464c5",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "c5cee990-97bf-4432-a273-697019898ad2"
+            "d9b7b0ec-e4b5-461a-9c40-7c9d61791397"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 11549,
+          "duration": 14579,
           "root": false,
           "rootEmpty": false,
           "_timeout": 0
