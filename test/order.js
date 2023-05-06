@@ -2,7 +2,6 @@ const versionMatcher = require("chromedriver-version-matcher");
 const { expect } = require("chai");
 const { By, Key, Builder, Select, until } = require("selenium-webdriver");
 
-
 require("chromedriver");
 describe("task for go phptravels", async function () {
   it("successful", async function () {
@@ -82,7 +81,7 @@ describe("task for go phptravels", async function () {
     }, 5000);
   });
 
-  it("successful", async function () {
+  it("falsy form fields", async function () {
     //create driver
     // Set up the Selenium driver
     const driver = await new Builder().forBrowser("chrome").build();
@@ -113,7 +112,9 @@ describe("task for go phptravels", async function () {
 
     await driver.findElement(By.id("submit-button")).click();
     //waiting for page to reload because button triggers page refresh and error elements are not present before that
-    await driver.wait(until.stalenessOf(driver.findElement(By.tagName('html'))));
+    await driver.wait(
+      until.stalenessOf(driver.findElement(By.tagName("html")))
+    );
     // Find all  elements with the "help-block" class
     const helpBlockElements = await driver.findElements(By.css("small"));
 
@@ -159,18 +160,29 @@ describe("task for go phptravels", async function () {
 
     const passwordHelpBlockExpected = "This field is required";
     expect(passwordHelpBlockText).to.equal(passwordHelpBlockExpected);
-
+    //fill in correct first, last name but falsy email and password
     const firstName1 = await driver.findElement(By.id("firstName"));
 
     const secondName1 = await driver.findElement(By.id("lastName"));
 
     const email1 = await driver.findElement(By.id("email"));
+    const password1 = await driver.findElement(By.id("password"));
     await firstName1.sendKeys("Denis");
     await secondName1.sendKeys("Poplavskii");
-    await email1.sendKeys("mymai");
-
-
-    await password.sendKeys("easy1357$");
+    await email1.sendKeys("mymai@");
+    await password1.sendKeys("12345");
+    const submitButton1 = await driver.findElement(By.id("submit-button"));
+    const submitButtonValidationStatus =
+      await submitButton1.getAttribute("disabled");
+    console.log(`submitButtonValidationStatus`, submitButtonValidationStatus);
+    const submitButtonValidationStatusExpected = 'true';
+    expect(submitButtonValidationStatus).to.equal(submitButtonValidationStatusExpected);
+    //filling also email,password field with valid data submit button should be enabled
+    await email1.sendKeys("hots.com");
+    await password1.sendKeys("6");
+    const submitButtonValidationStatus1 =
+      await submitButton1.getAttribute("disabled");
+    expect(submitButtonValidationStatus1).to.equal(null);
     setTimeout(async function () {
       await driver.quit();
     }, 5000);
