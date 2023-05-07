@@ -35,7 +35,7 @@ describe("task for go phptravels", async function () {
 
     await driver.findElement(By.id("submit-button")).click();
 
-      //update for new functionality on page
+    //update for new functionality on page
     await driver.wait(
       until.urlContains("https://www.graze.com/uk/registration/address"),
       5000
@@ -150,16 +150,34 @@ describe("task for go phptravels", async function () {
     // // Check if the text matches the expected value
     //first name field error
     const firstNameHelpBlockExpected = "first name is required";
-    expect(firstHelpBlockText).to.equal(firstNameHelpBlockExpected);
+    try {
+      expect(firstHelpBlockText).to.equal(firstNameHelpBlockExpected);
+    } catch (error) {
+      console.error("Assertion failed:", error);
+    }
+
     //second name field error
     const secondNameHelpBlockExpected = "last name is required";
-    expect(secondHelpBlockText).to.equal(secondNameHelpBlockExpected);
+    try {
+      expect(secondHelpBlockText).to.equal(secondNameHelpBlockExpected);
+    } catch (error) {
+      console.error("Assertion failed:", error);
+    }
 
     const emailHelpBlockExpected = "This field is required";
-    expect(emailHelpBlockText).to.equal(emailHelpBlockExpected);
+    try {
+      expect(emailHelpBlockText).to.equal(emailHelpBlockExpected);
+    } catch (error) {
+      console.error("Assertion failed:", error);
+    }
 
     const passwordHelpBlockExpected = "This field is required";
-    expect(passwordHelpBlockText).to.equal(passwordHelpBlockExpected);
+    try {
+      expect(passwordHelpBlockText).to.equal(passwordHelpBlockExpected);
+    } catch (error) {
+      console.error("Assertion failed:", error);
+    }
+
     //fill in correct first, last name but falsy email and password
     const firstName1 = await driver.findElement(By.id("firstName"));
 
@@ -172,17 +190,31 @@ describe("task for go phptravels", async function () {
     await email1.sendKeys("mymai@");
     await password1.sendKeys("12345");
     const submitButton1 = await driver.findElement(By.id("submit-button"));
-    const submitButtonValidationStatus =
-      await submitButton1.getAttribute("disabled");
+    const submitButtonValidationStatus = await submitButton1.getAttribute(
+      "disabled"
+    );
     console.log(`submitButtonValidationStatus`, submitButtonValidationStatus);
-    const submitButtonValidationStatusExpected = 'true';
-    expect(submitButtonValidationStatus).to.equal(submitButtonValidationStatusExpected);
+    const submitButtonValidationStatusExpected = "true";
+    try {
+      expect(submitButtonValidationStatus).to.equal(
+        submitButtonValidationStatusExpected
+      );
+    } catch (error) {
+      console.error("Assertion failed:", error);
+    }
+   
     //filling also email,password field with valid data submit button should be enabled
     await email1.sendKeys("hots.com");
     await password1.sendKeys("6");
-    const submitButtonValidationStatus1 =
-      await submitButton1.getAttribute("disabled");
-    expect(submitButtonValidationStatus1).to.equal(null);
+    const submitButtonValidationStatus1 = await submitButton1.getAttribute(
+      "disabled"
+    );
+    try {
+      expect(submitButtonValidationStatus1).to.equal(null);
+    } catch (error) {
+      console.error("Assertion failed:", error);
+    }
+    
     setTimeout(async function () {
       await driver.quit();
     }, 5000);

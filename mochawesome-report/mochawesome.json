@@ -1,14 +1,14 @@
 {
   "stats": {
     "suites": 1,
-    "tests": 1,
-    "passes": 1,
+    "tests": 2,
+    "passes": 2,
     "pending": 0,
     "failures": 0,
-    "start": "2023-05-06T19:52:30.689Z",
-    "end": "2023-05-06T19:52:44.631Z",
-    "duration": 13942,
-    "testsRegistered": 1,
+    "start": "2023-05-07T06:54:08.880Z",
+    "end": "2023-05-07T06:54:37.832Z",
+    "duration": 28952,
+    "testsRegistered": 2,
     "passPercent": 100,
     "pendingPercent": 0,
     "other": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "b48bd4f0-356a-4caf-9ff4-fc06dace9ef0",
+      "uuid": "7965a9db-722c-4fd6-8f5d-ed0a922d315b",
       "title": "",
       "fullFile": "D:\\FrontEnd\\Practice projects\\e-commerce automation\\test\\order.js",
       "file": "\\test\\order.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "4d5cd42a-489d-47af-983f-81e92bc82619",
+          "uuid": "3c9095c7-814b-4cdb-863c-e34a3464af29",
           "title": "task for go phptravels",
           "fullFile": "D:\\FrontEnd\\Practice projects\\e-commerce automation\\test\\order.js",
           "file": "\\test\\order.js",
@@ -35,32 +35,51 @@
           "afterHooks": [],
           "tests": [
             {
-              "title": "falsy form fields",
-              "fullTitle": "task for go phptravels falsy form fields",
+              "title": "successful",
+              "fullTitle": "task for go phptravels successful",
               "timedOut": false,
-              "duration": 13936,
+              "duration": 17082,
               "state": "passed",
               "speed": "slow",
               "pass": true,
               "fail": false,
               "pending": false,
               "context": null,
-              "code": "//create driver\n// Set up the Selenium driver\nconst driver = await new Builder().forBrowser(\"chrome\").build();\n// Navigate to the webpage\ndriver.get(\"https://www.graze.com/uk/\");\nawait driver.manage().window().maximize();\nawait driver\n  .findElement(\n    By.className(\"button button--primary signup-button text-center\")\n  )\n  .click();\nconst boxes = await driver.findElements(\n  By.className(\"button button--secondary button--block\")\n);\nawait boxes[1].click();\n//filling first data page with info\nconst firstName = await driver.findElement(By.id(\"firstName\"));\nconst secondName = await driver.findElement(By.id(\"lastName\"));\nconst email = await driver.findElement(By.id(\"email\"));\nconst password = await driver.findElement(By.id(\"password\"));\nawait driver.findElement(By.id(\"submit-button\")).click();\n//waiting for page to reload because button triggers page refresh and error elements are not present before that\nawait driver.wait(\n  until.stalenessOf(driver.findElement(By.tagName(\"html\")))\n);\n// Find all  elements with the \"help-block\" class\nconst helpBlockElements = await driver.findElements(By.css(\"small\"));\n// Get the second <small> element and output its text content\nconst firstHelpBlockElement = helpBlockElements[0];\n//getting error text for first name\nconst firstHelpBlockText = await firstHelpBlockElement.getAttribute(\n  \"innerText\"\n);\nconsole.log(`firstHelpBlockText`, firstHelpBlockText);\nconst secondHelpBlockElement = helpBlockElements[2];\n//getting error text for second name\nconst secondHelpBlockText = await secondHelpBlockElement.getAttribute(\n  \"innerText\"\n);\nconsole.log(`secondHelpBlockText`, secondHelpBlockText);\nconst emailHelpBlockElement = helpBlockElements[5];\n//getting error text for email\nconst emailHelpBlockText = await emailHelpBlockElement.getAttribute(\n  \"innerText\"\n);\nconsole.log(`emailHelpBlockText1`, emailHelpBlockText);\nconst passwordHelpBlockElement = helpBlockElements[8];\n//getting error text for password\nconst passwordHelpBlockText = await passwordHelpBlockElement.getAttribute(\n  \"innerText\"\n);\nconsole.log(`passwordHelpBlockText1`, passwordHelpBlockText);\n// // Check if the text matches the expected value\n//first name field error\nconst firstNameHelpBlockExpected = \"first name is required\";\nexpect(firstHelpBlockText).to.equal(firstNameHelpBlockExpected);\n//second name field error\nconst secondNameHelpBlockExpected = \"last name is required\";\nexpect(secondHelpBlockText).to.equal(secondNameHelpBlockExpected);\nconst emailHelpBlockExpected = \"This field is required\";\nexpect(emailHelpBlockText).to.equal(emailHelpBlockExpected);\nconst passwordHelpBlockExpected = \"This field is required\";\nexpect(passwordHelpBlockText).to.equal(passwordHelpBlockExpected);\n//fill in correct first, last name but falsy email and password\nconst firstName1 = await driver.findElement(By.id(\"firstName\"));\nconst secondName1 = await driver.findElement(By.id(\"lastName\"));\nconst email1 = await driver.findElement(By.id(\"email\"));\nconst password1 = await driver.findElement(By.id(\"password\"));\nawait firstName1.sendKeys(\"Denis\");\nawait secondName1.sendKeys(\"Poplavskii\");\nawait email1.sendKeys(\"mymai@\");\nawait password1.sendKeys(\"12345\");\nconst submitButton1 = await driver.findElement(By.id(\"submit-button\"));\nconst submitButtonValidationStatus =\n  await submitButton1.getAttribute(\"disabled\");\nconsole.log(`submitButtonValidationStatus`, submitButtonValidationStatus);\nconst submitButtonValidationStatusExpected = 'true';\nexpect(submitButtonValidationStatus).to.equal(submitButtonValidationStatusExpected);\n//filling also email,password field with valid data\nawait email1.sendKeys(\"hots.com\");\nawait password1.sendKeys(\"6\");\nconst submitButtonValidationStatus1 =\n  await submitButton1.getAttribute(\"disabled\");\nexpect(submitButtonValidationStatus1).to.equal(null);\nsetTimeout(async function () {\n  await driver.quit();\n}, 5000);",
+              "code": "//create driver\n// Set up the Selenium driver\nconst driver = await new Builder().forBrowser(\"chrome\").build();\n// Navigate to the webpage\ndriver.get(\"https://www.graze.com/uk/\");\nawait driver.manage().window().maximize();\nawait driver\n  .findElement(\n    By.className(\"button button--primary signup-button text-center\")\n  )\n  .click();\nconst boxes = await driver.findElements(\n  By.className(\"button button--secondary button--block\")\n);\nawait boxes[1].click();\n//filling first data page with info\nconst firstName = await driver.findElement(By.id(\"firstName\"));\nawait firstName.sendKeys(\"Denis\");\nconst secondName = await driver.findElement(By.id(\"lastName\"));\nawait secondName.sendKeys(\"Poplavskii\");\nconst email = await driver.findElement(By.id(\"email\"));\nawait email.sendKeys(\"mymail@gmail.com\");\nconst password = await driver.findElement(By.id(\"password\"));\nawait password.sendKeys(\"easy1357$\");\nawait driver.findElement(By.id(\"submit-button\")).click();\n//update for new functionality on page\nawait driver.wait(\n  until.urlContains(\"https://www.graze.com/uk/registration/address\"),\n  5000\n);\nawait driver.findElement(By.className(\"alert-link\")).click();\n// Wait for the new page to load\nawait driver.wait(\n  until.urlContains(\"https://www.graze.com/uk/registration/address\"),\n  5000\n);\n//filling second data page\nconst streetAdress = await driver.findElement(By.id(\"line1\"));\nawait streetAdress.sendKeys(\"Rakowicka 12\");\nconst townName = await driver.findElement(By.id(\"town\"));\nawait townName.sendKeys(\"Cracow\");\nconst postcode = await driver.findElement(By.id(\"postcode\"));\nawait postcode.sendKeys(\"TW9 1EW\");\nawait driver.findElement(By.id(\"continue\")).click();\n//filling third data page\nawait driver.wait(\n  until.urlContains(\"https://www.graze.com/uk/registration/card-details\"),\n  5000\n);\nconst cardHolder = await driver.findElement(By.id(\"nameOnCard\"));\nawait cardHolder.sendKeys(\"Newyork Englishman\");\nconst cardNumber = await driver.findElement(By.id(\"number\"));\nawait cardNumber.sendKeys(\"4739\");\nawait cardNumber.sendKeys(\"6270\");\nawait cardNumber.sendKeys(\"4100\");\nawait cardNumber.sendKeys(\"7923\");\nconst cvc = await driver.findElement(By.id(\"cv2\"));\nawait cvc.sendKeys(\"127\");\nconst billingCode = await driver.findElement(By.id(\"billingPostcode\"));\nawait billingCode.sendKeys(\"TW9 1EW\");\nawait driver.findElement(By.id(\"submit-button\")).click();\nsetTimeout(async function () {\n  await driver.quit();\n}, 5000);",
               "err": {},
-              "uuid": "ea116c66-c969-43f2-a390-c2b720e4e062",
-              "parentUUID": "4d5cd42a-489d-47af-983f-81e92bc82619",
+              "uuid": "cbbedf29-a750-4f69-856c-b1cf1f6b3707",
+              "parentUUID": "3c9095c7-814b-4cdb-863c-e34a3464af29",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "falsy form fields",
+              "fullTitle": "task for go phptravels falsy form fields",
+              "timedOut": false,
+              "duration": 11857,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//create driver\n// Set up the Selenium driver\nconst driver = await new Builder().forBrowser(\"chrome\").build();\n// Navigate to the webpage\ndriver.get(\"https://www.graze.com/uk/\");\nawait driver.manage().window().maximize();\nawait driver\n  .findElement(\n    By.className(\"button button--primary signup-button text-center\")\n  )\n  .click();\nconst boxes = await driver.findElements(\n  By.className(\"button button--secondary button--block\")\n);\nawait boxes[1].click();\n//filling first data page with info\nconst firstName = await driver.findElement(By.id(\"firstName\"));\nconst secondName = await driver.findElement(By.id(\"lastName\"));\nconst email = await driver.findElement(By.id(\"email\"));\nconst password = await driver.findElement(By.id(\"password\"));\nawait driver.findElement(By.id(\"submit-button\")).click();\n//waiting for page to reload because button triggers page refresh and error elements are not present before that\nawait driver.wait(\n  until.stalenessOf(driver.findElement(By.tagName(\"html\")))\n);\n// Find all  elements with the \"help-block\" class\nconst helpBlockElements = await driver.findElements(By.css(\"small\"));\n// Get the second <small> element and output its text content\nconst firstHelpBlockElement = helpBlockElements[0];\n//getting error text for first name\nconst firstHelpBlockText = await firstHelpBlockElement.getAttribute(\n  \"innerText\"\n);\nconsole.log(`firstHelpBlockText`, firstHelpBlockText);\nconst secondHelpBlockElement = helpBlockElements[2];\n//getting error text for second name\nconst secondHelpBlockText = await secondHelpBlockElement.getAttribute(\n  \"innerText\"\n);\nconsole.log(`secondHelpBlockText`, secondHelpBlockText);\nconst emailHelpBlockElement = helpBlockElements[5];\n//getting error text for email\nconst emailHelpBlockText = await emailHelpBlockElement.getAttribute(\n  \"innerText\"\n);\nconsole.log(`emailHelpBlockText1`, emailHelpBlockText);\nconst passwordHelpBlockElement = helpBlockElements[8];\n//getting error text for password\nconst passwordHelpBlockText = await passwordHelpBlockElement.getAttribute(\n  \"innerText\"\n);\nconsole.log(`passwordHelpBlockText1`, passwordHelpBlockText);\n// // Check if the text matches the expected value\n//first name field error\nconst firstNameHelpBlockExpected = \"first name is required111\";\ntry {\n  expect(firstHelpBlockText).to.equal(firstNameHelpBlockExpected);\n} catch (error) {\n  console.error(\"Assertion failed:\", error);\n}\n\n//second name field error\nconst secondNameHelpBlockExpected = \"last name is required\";\nexpect(secondHelpBlockText).to.equal(secondNameHelpBlockExpected);\nconst emailHelpBlockExpected = \"This field is required\";\nexpect(emailHelpBlockText).to.equal(emailHelpBlockExpected);\nconst passwordHelpBlockExpected = \"This field is required\";\nexpect(passwordHelpBlockText).to.equal(passwordHelpBlockExpected);\n//fill in correct first, last name but falsy email and password\nconst firstName1 = await driver.findElement(By.id(\"firstName\"));\nconst secondName1 = await driver.findElement(By.id(\"lastName\"));\nconst email1 = await driver.findElement(By.id(\"email\"));\nconst password1 = await driver.findElement(By.id(\"password\"));\nawait firstName1.sendKeys(\"Denis\");\nawait secondName1.sendKeys(\"Poplavskii\");\nawait email1.sendKeys(\"mymai@\");\nawait password1.sendKeys(\"12345\");\nconst submitButton1 = await driver.findElement(By.id(\"submit-button\"));\nconst submitButtonValidationStatus = await submitButton1.getAttribute(\n  \"disabled\"\n);\nconsole.log(`submitButtonValidationStatus`, submitButtonValidationStatus);\nconst submitButtonValidationStatusExpected = \"true\";\nexpect(submitButtonValidationStatus).to.equal(\n  submitButtonValidationStatusExpected\n);\n//filling also email,password field with valid data submit button should be enabled\nawait email1.sendKeys(\"hots.com\");\nawait password1.sendKeys(\"6\");\nconst submitButtonValidationStatus1 = await submitButton1.getAttribute(\n  \"disabled\"\n);\nexpect(submitButtonValidationStatus1).to.equal(null);\nsetTimeout(async function () {\n  await driver.quit();\n}, 5000);",
+              "err": {},
+              "uuid": "e861d540-b729-41ab-8ea3-255047aae000",
+              "parentUUID": "3c9095c7-814b-4cdb-863c-e34a3464af29",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "ea116c66-c969-43f2-a390-c2b720e4e062"
+            "cbbedf29-a750-4f69-856c-b1cf1f6b3707",
+            "e861d540-b729-41ab-8ea3-255047aae000"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 13936,
+          "duration": 28939,
           "root": false,
           "rootEmpty": false,
           "_timeout": 0
