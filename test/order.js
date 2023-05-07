@@ -202,7 +202,7 @@ describe("task for go phptravels", async function () {
     } catch (error) {
       console.error("Assertion failed:", error);
     }
-   
+
     //filling also email,password field with valid data submit button should be enabled
     await email1.sendKeys("hots.com");
     await password1.sendKeys("6");
@@ -214,7 +214,7 @@ describe("task for go phptravels", async function () {
     } catch (error) {
       console.error("Assertion failed:", error);
     }
-    
+
     setTimeout(async function () {
       await driver.quit();
     }, 5000);
